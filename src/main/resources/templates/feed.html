@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Feed</title>
+	<link th:replace="fragments/head">
+</head>
+<body>
+	 <div th:replace="fragments/navbar"></div>
+	 
+	  <main role="main">
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+          <div class="container">
+              <h1 class="display-3">Herps Tracker</h1>
+              <p>Track your animals here! </p>
+              <p><a class="btn btn-primary btn-lg" href="/newanimal" role="button">Add Animal &raquo;</a></p>
+          </div>
+      </div>
+ 
+      <div class="container">
+          <div class="row">
+       		 <div class="card col-md-3 small-product-card"  th:each="reptile:${reptiles}">
+                    <a  th:href="@{/}"><img th:alt="${reptile.name}" th:src="@{${}}" class="card-img"/></a>
+                    <div class="card-body">
+                    	<div class="card-title">
+                        	<h4 th:text="${reptile.name}"></h4>
+                        	Age: <small th:text="${reptile.getAge()}"></small>
+                    	</div>
+                	</div>    
+        		</div>
+    		</div>
+  		</div>
+  </main>
+	 
+	 </body>
+</html>

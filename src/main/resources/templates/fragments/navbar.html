@@ -1,0 +1,23 @@
+<div th:fragment="navbar" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" style="color: #1da1f2"> 
+      <i> Herps Tracker</i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active" sec:authorize="isAuthenticated()">
+          <a class="nav-link" style="color: #1da1f2" href="../logout">Logout</a>
+        </li>
+        <li class="nav-item active" sec:authorize="!isAuthenticated()">
+          <a class="nav-link" style="color: #1da1f2" href="../signup">Sign up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
