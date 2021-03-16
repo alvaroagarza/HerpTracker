@@ -11,6 +11,7 @@ import com.tts.herptracker.model.User;
 @Repository
 public interface ReptileRepository extends CrudRepository<Reptile, Long>{
 	List<Reptile> findAllByUser(User user);
+	Reptile findById(long id);
 	
 
 }

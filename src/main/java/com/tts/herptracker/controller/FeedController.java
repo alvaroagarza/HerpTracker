@@ -2,7 +2,7 @@ package com.tts.herptracker.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,9 +40,10 @@ public class FeedController {
 	    }
 	  
 	  
-	    @PostMapping(value = "/feed")
+	    @PostMapping(value = "/newanimal")
 	    public String submitAnimalForm(Reptile reptile, BindingResult bindingResult, Model model) {
 	        User user = userService.getLoggedInUser();
+	        
 	        if (!bindingResult.hasErrors()) {
 	            reptile.setUser(user);
 	            reptileService.save(reptile);

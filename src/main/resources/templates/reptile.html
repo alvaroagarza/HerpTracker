@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>New Animal</title>
+	<link th:replace="fragments/head">
+</head>
+<body>
+	 <div th:replace="fragments/navbar"></div>
+	 
+	 <div class="container">
+        <div class="card mb-3 large-product-card">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img th:alt="${reptile.name}" th:src="@{https://museumsvictoria.com.au/media/12978/vic-stripedleglesslizard-large.jpg}" class="card-img" style="max-height: 100%; object-fit: cover;" />
+                </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4 th:text="${reptile.name}" style="margin-bottom: 0;"></h4>
+                        <small th:text="${reptile.getSpecies}"></small>
+                    </div>
+                    <p class="card-text" th:text="${reptile.weight}"></p>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <table>
+    <thead>
+        <tr>
+            <th> Most Recent Feedings</th>
+        </tr>
+    </thead>
+    <tbody>
+    <th:block th:object="${feedTrax}">
+	<tr th:if="${#lists.isEmpty(feedTrax)}">
+            <td colspan="2"> No Recent Feedings </td>
+        </tr>
+        <tr th:each="feed : ${feedTrax}">
+            <td><span th:text="${feed.FedAt}">Fed At</span>
+            <span th:text="${feed.food}">Food</span></td>           
+        </tr>
+    </tbody>
+    </th:block>
+</table>
+
+<h4>Add Feeding</h4>
+	   <div class="container-fluid">
+	
+ 
+        <form th:action="@{/reptile}" th:object="${newTrax}" method="POST" autocomplete="off" >
+            <div class="form-group">
+
+                <input type="text" th:field="*{food}" placeholder="Food" class="form-control"/>
+            </div>
+       <input th:field="*{FedAt}" placeholder="FedAt" class="form-control"/> 
+
+            </div> 
+            
+            
+            <div class="form-group">
+                <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
+            </div>
+        </form>
+    </div>
+    </body>
+    </html>
+	 

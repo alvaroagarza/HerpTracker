@@ -8,11 +8,11 @@
 <body>
 	 <div th:replace="fragments/navbar"></div>
 	 
+	 <h2>Add an Animal</h2>
 	   <div class="container-fluid">
-
-        <h2>Sign up</h2>		
-        <div th:if="!${success}">
-        <form th:action="@{/newanimal}" th:object="${newReptile}" method="post" autocomplete="off" >
+	
+ 
+        <form th:action="@{/newanimal}" th:object="${newReptile}" method="POST" autocomplete="off" >
             <div class="form-group">
 
                 <input type="text" th:field="*{name}" placeholder="Name" class="form-control"/>
@@ -28,22 +28,17 @@
                 <input th:field="*{weight}" placeholder="Weight" class="form-control"/> 
       
             </div>
+            
+            
             <div class="form-group">
                 <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
             </div>
         </form>
+        <div th:if="${successMessage}">
+            <h3><span class="text-success" th:utext="${successMessage}"></span></h3>
     </div>
     </div>
-    <div th:if="${success}">
-			<h2>
-				 <span class="text-success" th:utext="${success}"></span>
-			</h2>
-			<br />
-			<form th:action="@{/}" method="get">
-				<button class="btn btn-md btn-primary btn-block" type="Submit">Go
-					to login page</button>
-			</form>
-		</div>
+  
 </body>
 </html>
 	 

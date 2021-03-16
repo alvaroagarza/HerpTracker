@@ -21,6 +21,10 @@ public class ReptileService {
 		return reptiles;
 		
 	}
+	public Reptile findById(long id) {
+		Reptile reptile = reptileRepository.findById(id);
+		return reptile;
+	}
 	
 	public void save(Reptile reptile) {
 		reptileRepository.save(reptile);

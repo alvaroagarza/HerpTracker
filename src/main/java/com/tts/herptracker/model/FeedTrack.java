@@ -1,6 +1,7 @@
 package com.tts.herptracker.model;
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,8 +14,6 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,29 +24,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Reptile {
-	
+public class FeedTrack {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private long id;
 	
-
-	
-	private String name;
-	
-	private String species;
-	
-	private int age;
-//	
-//	//in grams
-	private double weight;
-	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "Owner")
+	@JoinColumn(name = "Reptile")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private User user;
-
+	private Reptile reptile;
+	
+	private String food;
+	
+	private String FedAt;
 
 }

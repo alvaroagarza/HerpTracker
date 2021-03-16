@@ -21,7 +21,7 @@
       <div class="container">
           <div class="row">
        		 <div class="card col-md-3 small-product-card"  th:each="reptile:${reptiles}">
-                    <a  th:href="@{/}"><img th:alt="${reptile.name}" th:src="@{${}}" class="card-img"/></a>
+                    <a  th:href="@{/reptile/{id}(id=${reptile.getId()})}"><img th:alt="${reptile.name}" th:src="@{images/legless.jpeg}" class="card-img"/></a>
                     <div class="card-body">
                     	<div class="card-title">
                         	<h4 th:text="${reptile.name}"></h4>
