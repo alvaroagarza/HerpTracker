@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
-    <title>New Animal</title>
+    <title>Reptile</title>
 	<link th:replace="fragments/head">
 </head>
 <body>
@@ -20,8 +20,12 @@
                         <h4 th:text="${reptile.name}" style="margin-bottom: 0;"></h4>
                         <small th:text="${reptile.getSpecies}"></small>
                     </div>
-                    <p class="card-text" th:text="${reptile.weight}"></p>
+                   
+                   Weight: <p class="card-text" th:text="${reptile.weight}" th:remove="tag" ></p> <br>
+                   Age: <p class="card-text" th:text="${reptile.age}" th:remove="tag" ></p> 
+                   
                 </div>
+              <a class="btn btn-primary" th:href="@{${editLink}}" role="button">Edit Info</a>
             </div>
         </div>
     </div>   
@@ -52,8 +56,10 @@
             <div class="form-group">
 
                 <input type="text" th:field="*{food}" placeholder="Food" class="form-control"/>
+                 <label th:if="${#fields.hasErrors('food')}" th:errors="*{food}" class="validation-message"></label>
             </div>
-       <input th:field="*{FedAt}" placeholder="FedAt" class="form-control"/> 
+       <input type="date" th:field="*{FedAt}" placeholder="FedAt" class="form-control"/> 
+       <label th:if="${#fields.hasErrors('FedAt')}" th:errors="*{FedAt}" class="validation-message"></label>
 
             </div> 
             
@@ -62,7 +68,8 @@
                 <button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" type="Submit" th:text="Submit"></button>
             </div>
         </form>
-    </div>
+        
+            
     </body>
     </html>
 	 

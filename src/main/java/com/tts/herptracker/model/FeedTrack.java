@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -36,8 +37,10 @@ public class FeedTrack {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Reptile reptile;
 	
+//	@NotBlank(message = "Name is mandatory")
 	private String food;
 	
+//	@NotBlank(message = "Name is mandatory")
 	private String FedAt;
 
 }

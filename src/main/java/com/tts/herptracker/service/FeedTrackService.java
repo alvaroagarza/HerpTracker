@@ -19,8 +19,9 @@ public class FeedTrackService {
 	public List<FeedTrack> findAllByReptile(Reptile reptile) {
 		List<FeedTrack> feedTrack = repo.findAllByReptile(reptile);
 		Collections.reverse(feedTrack);
+		if(!feedTrack.isEmpty() && feedTrack.size() > 6) {
 		feedTrack = feedTrack.subList(0, 5);
-		
+		}
 		
 		return feedTrack;
 	}

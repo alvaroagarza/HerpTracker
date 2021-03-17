@@ -26,6 +26,13 @@ public class ReptileService {
 		return reptile;
 	}
 	
+	public void updateWeightAndAge(long id, int age, double weight) {
+		Reptile reptile = findById(id);
+		reptile.setAge(age);
+		reptile.setWeight(weight);
+		save(reptile);
+	}
+	
 	public void save(Reptile reptile) {
 		reptileRepository.save(reptile);
 	}

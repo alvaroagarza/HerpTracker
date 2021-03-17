@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>New Animal</title>
+	<link th:replace="fragments/head">
+</head>
+<body>
+	 <div th:replace="fragments/navbar"></div>
+
+<form 
+  th:action="@{/update/{id}(id=${reptileUD.id})}" 
+  th:object="${reptileUD}" 
+  method="post">
+    <label for="age">Age</label>
+    <input type="number" th:field="*{age}" id="age" placeholder="Age">
+    <label for="weight">Weight</label>
+    <input type="number" th:field="*{weight}" id="weight" step=".1" placeholder="Weight">        
+    <button class="btn btn-md btn-success" name="Submit" value="Update" type="Submit" th:text="Submit"></button>
+            
+</form>
+
+</body>
+</html>
