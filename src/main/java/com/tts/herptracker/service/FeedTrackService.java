@@ -1,5 +1,6 @@
 package com.tts.herptracker.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class FeedTrackService {
 	
 	public List<FeedTrack> findAllByReptile(Reptile reptile) {
 		List<FeedTrack> feedTrack = repo.findAllByReptile(reptile);
+		Collections.reverse(feedTrack);
+		feedTrack = feedTrack.subList(0, 5);
+		
+		
 		return feedTrack;
 	}
 	

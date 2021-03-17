@@ -12,7 +12,7 @@
         <div class="card mb-3 large-product-card">
             <div class="row no-gutters">
                 <div class="col-md-6">
-                    <img th:alt="${reptile.name}" th:src="@{https://museumsvictoria.com.au/media/12978/vic-stripedleglesslizard-large.jpg}" class="card-img" style="max-height: 100%; object-fit: cover;" />
+                    <img th:alt="${reptile.getName}" th:src="@{https://museumsvictoria.com.au/media/12978/vic-stripedleglesslizard-large.jpg}" class="card-img" style="max-height: 100%; object-fit: cover;" />
                 </div>
             <div class="col-md-4">
                 <div class="card-body">
@@ -48,7 +48,7 @@
 	   <div class="container-fluid">
 	
  
-        <form th:action="@{/reptile}" th:object="${newTrax}" method="POST" autocomplete="off" >
+        <form th:action="@{${url}}" th:object="${newTrax}" method="POST" autocomplete="off" >
             <div class="form-group">
 
                 <input type="text" th:field="*{food}" placeholder="Food" class="form-control"/>

@@ -32,25 +32,25 @@ public class ReptileController {
 		model.addAttribute("newTrax", new FeedTrack());
         
 		model.addAttribute("feedTrax", feedTrack);
-		model.addAttribute(reptile);
+		model.addAttribute("reptile", reptile);
 		
 		return "reptile";
 	}
 	
 	@PostMapping("/reptile/{id}")
-	public String feed(@PathVariable int id, Model model, BindingResult bindingResult, FeedTrack feedTrax) {
+	public String feed(@PathVariable int id, Model model, FeedTrack feedTrax) {
 		Reptile reptile = reptileService.findById(id);
-		
-		if (!bindingResult.hasErrors()) {
+			String url = "/reptile/" + id;
 			feedTrax.setReptile(reptile);
             feed.save(feedTrax);
-            
+            System.out.println(url);
+            model.addAttribute("url", url);
             model.addAttribute("newReptile", new Reptile());
-        }
+       
 		
 		
 		
-		return "reptile";
+		return "success";
 	}
 
 }
