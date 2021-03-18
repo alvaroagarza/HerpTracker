@@ -54,7 +54,13 @@ public class FeedController {
 	  
 	    }
 	    
-	  @ModelAttribute("reptiles")
+	   @ModelAttribute("username")
+	   public String username() {
+		   User user = userService.getLoggedInUser();
+		   return user.getUsername();
+	   }
+	  
+	   @ModelAttribute("reptiles")
 		public List<Reptile> reptiles() {
 		  User loggedInUser = userService.getLoggedInUser();
 		 	return reptileService.findAllByUser(loggedInUser);
