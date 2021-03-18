@@ -18,7 +18,7 @@
     <label for="weight">Weight</label>
     <input type="number" th:field="*{weight}" id="weight" step=".1" placeholder="Weight">        
     <button class="btn btn-md btn-success" name="Submit" value="Update" type="Submit" th:text="Submit"></button>
-            
+     <a class="btn btn-danger" th:href="@{/reptile/{id}(id=${reptileUD.id})}" role="button">Cancel</a>       
 </form>
 
 </body>
