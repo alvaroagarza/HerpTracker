@@ -1,11 +1,3 @@
-.list-group-hover .list-group-item:hover {
-    background-color: #BBC5C6
-}
-
-a.username {
-    color: #00aced
-}
-
-a.tag {
-    color: #0084b4
+input[name="message_to"] {
+  display: none;  
 }
